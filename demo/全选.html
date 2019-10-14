@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            border-top: solid 1px #ccc;
+            border-left: solid 1px #ccc;
+            width: 224px;
+        }
+
+        ul li {
+            overflow: hidden;
+        }
+
+        ul li span {
+            float: left;
+            border-bottom: solid 1px #ccc;
+            border-right: solid 1px #ccc;
+            width: 160px;
+            padding: 5px 8px;
+
+        }
+
+        ul li .chk {
+            width: 30px;
+            text-align: center;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <span class="chk">
+                <input type="checkbox" name="" id="">
+            </span>
+            <span>编程语言</span>
+        </li>
+        <li>
+            <span class="chk">
+                <input type="checkbox" name="" id="">
+            </span>
+            <span>C</span>
+        </li>
+        <li>
+            <span class="chk">
+                <input type="checkbox" name="" id="">
+            </span>
+            <span>Java</span>
+        </li>
+        <li>
+            <span class="chk">
+                <input type="checkbox" name="" id="">
+            </span>
+            <span>PHP</span>
+        </li>
+        <li>
+            <span class="chk">
+                <input type="checkbox" name="" id="">
+            </span>
+            <span>JavaScript</span>
+        </li>
+        <li>
+            <span class="chk">
+                <input type="checkbox" name="" id="">
+            </span>
+            <span>C++</span>
+        </li>
+        <li>
+            <span class="chk">
+                <input type="checkbox" name="" id="">
+            </span>
+            <span>Python</span>
+        </li>
+    </ul>
+    
+    <script>
+        //奇偶隔行变色
+        $('ul li:not(:first):even').
+        css("background-color", "#eeee")
+       
+        //获取第一个复选框元素
+        $('ul li input:first').
+        bind("click", function () {
+            //获取复选框按钮
+            var _that = $(this);
+            if (_that.prop('checked')) {
+                //获取除了第一项的li元素
+                $('ul li input:not(:first)').
+                attr("checked", "true");
+            }
+            else {
+                $('ul li input:not(:first)').
+                removeAttr("checked")
+            }
+        })
+    </script>
+</body>
+
+</html>

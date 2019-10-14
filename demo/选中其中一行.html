@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            border: solid 5px #666;
+            width: 800px
+        }
+
+        ul li {
+            overflow: hidden;
+        }
+
+        ul li span {
+            float: left;
+            border-bottom: solid 1px #ccc;
+            border-right: solid 1px #ccc;
+            width: 143px;
+            padding: 5px 8px;
+
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li class="head">
+            <span>Product</span>
+            <span>Price</span>
+            <span>ID Code</span>
+            <span>Quality</span>
+            <span>Exp Date</span>
+        </li>
+        <li>
+            <span>Pro 1</span>
+            <span>$51</span>
+            <span>4587</span>
+            <span>Good</span>
+            <span>10/11/2009</span>
+        </li>
+        <li>
+            <span>Pro 1</span>
+            <span>$51</span>
+            <span>4587</span>
+            <span>Good</span>
+            <span>10/11/2009</span>
+        </li>
+        <li>
+            <span>Pro 1</span>
+            <span>$51</span>
+            <span>4587</span>
+            <span>Good</span>
+            <span>10/11/2009</span>
+        </li>
+        <li>
+            <span>Pro 1</span>
+            <span>$51</span>
+            <span>4587</span>
+            <span>Good</span>
+            <span>10/11/2009</span>
+        </li>
+        <li>
+            <span>Pro 1</span>
+            <span>$51</span>
+            <span>4587</span>
+            <span>Good</span>
+            <span>10/11/2009</span>
+        </li>
+        <li>
+            <span>Pro 1</span>
+            <span>$51</span>
+            <span>4587</span>
+            <span>Good</span>
+            <span>10/11/2009</span>
+        </li>
+    </ul>
+
+    <script>
+        //获取除了第一项的li元素
+        $('ul li:not(:first)').each(function (i, e) {
+
+            $(e).bind('mouseover', function () {
+                $(this).css('background-color', '#eee')
+            });
+            
+            $(e).bind('mouseout', function () {
+                $(this).css('background-color', '#fff')
+            });
+
+        })
+    </script>
+</body>
+
+</html>

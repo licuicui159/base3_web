@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/data.js"></script>
+</head>
+
+<body>
+    <select name="prov" id="prov"></select>
+    <select name="city" id="city"></select>
+    <select name="area" id="area"></select>
+    <script>
+        var $prov = $("#prov");
+        var $city = $("#city");
+        var $area = $("#area");
+        $(function () {
+            //初始化数据
+            $prov.html("<option value='0'>请选择</option>");
+            $city.html("<option value='0'>请选择</option>");
+            $area.html("<option value='0'>请选择</option>");
+            //获取省份数据，并绑定下拉列表框
+            $.each(data, function (i, e) {
+                $prov.append("<option value='" + e.provId + "'>" + e.provname + "</option>")
+            })
+            //省份选择时，获取相应城市数据，并绑定下拉列表框
+            $prov.bind("change", function () {
+                $.each(data, function (i, e) {
+                    //如果选择的省份值与遍历时的某个值相等，则获取它的城市
+                    if ($prov.val() == e.provId) {
+                        $city.html("<option value='0'>请选择</option>");
+                        $.each(e.citys, function (i, e2) {
+                            $city.append("<option value='" + e2.cityId + "'>" + e2.cityname + "</option>")
+                        })
+                    }
+                })
+                if ($prov.val() == 0) {
+                    $city.html("<option value='0'>请选择</option>")
+                }
+                if ($city.val() == 0) {
+                    $area.html("<option value='0'>请选择</option>")
+                }
+            })
+            //城市选择时，获取相应区县数据，并绑定下拉列表框
+            $city.bind("change", function () {
+                $.each(data, function (i, e) {
+                    //如果选择的省份值与遍历时的某个值相等，则获取它的城市
+                    if ($prov.val() == e.provId) {
+                        $.each(e.citys, function (i, e2) {
+                            //如果选择的城市值与遍历时的某个值相等，则获取它的区县
+                            if ($city.val() == e2.cityId) {
+                                //清空原来数据
+                                $area.html("");
+                                $.each(e2.areas, function (i, e3) {
+                                    $area.append("<option value='" + e3.areaId + "'>" + e3.areaname + "</option>")
+                                })
+                            }
+                        })
+                    }
+                })
+                if ($city.val() == 0) {
+                    $area.html("<option value='0'>请选择</option>")
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

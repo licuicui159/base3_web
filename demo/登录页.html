@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 固定背景图片的位置 */
+        img {
+            position: fixed;
+            opacity: 0.2;
+        }
+
+        #log {
+            width: 300px;
+            height: 200px;
+            border: solid 1px red;
+            position: absolute;
+            background-color: #fff;
+            /* 居中 */
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -100px;
+        }
+
+        #log div {
+            margin: 15px;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <img width="100%" src="images/b.jpg" alt="">
+    <div id="log">
+        <form action="" onsubmit="return login();">
+            <div>
+                <input type="text" placeholder="请输入用户名" name="username" id="username">
+                <div>
+                    <input id="ok" type="checkbox">记住用户名
+                </div>
+            </div>
+            <div>
+                <input type="password" placeholder="请输入密码" name="userpass" id="userpass">
+            </div>
+            <div>
+                <input type="submit" value="登录">
+            </div>
+        </form>
+    </div>
+    <script>
+        function login() {
+            //获取用户名和密码的数据
+            var $username = $("#username");
+            var $userpass = $("#userpass");
+            if ($username.val() != '' && 
+                $userpass.val() != '') {
+                   
+                   if($("#ok").prop("checked")){
+                    //保存用户信息
+                    localStorage.setItem("username123",
+                        $username.val())
+                   }else{
+                      //删除已保存的用户信息对象
+                      localStorage.removeItem("username123") 
+                   }
+                    
+                return true;
+            } else {
+                if ($username.val() == '') {
+                    alert('用户名不能为空！');
+                    $username[0].focus();
+                    return false;
+                } else {
+                    alert('密码不能为空！');
+                    $userpass[0].focus();
+                    return false;
+                }
+            }
+        }
+        $(function(){
+            $("#username").val(
+                localStorage.getItem('username123'))
+        })
+    </script>
+</body>
+
+</html>

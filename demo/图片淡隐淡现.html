@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        #img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <a id="a1" href="">美女</a>
+    <div id="img">
+        <img src="../imgs/img02-3.png" alt="">
+    </div>
+    <script>
+        //获取元素对象并保存在变量中
+       var $a1=$("#a1");
+       var $img=$("#img");
+       //绑定a1的事件：图片显示与隐藏
+       $a1.hover(function(){
+           $img.show(1000);
+       },function(){
+           $img.hide(1000);
+       })
+
+               // 淡隐淡现
+        // $a1.hover(function(){
+        //     $img.fadeIn(2000);
+        // },function(){
+        //     $img.fadeOut(2000);
+
+        // })
+
+        // 隐藏显示
+        $a1.hover(function(){
+            $img.show(2000);
+        },function(){
+            $img.hide(2000);
+
+        })
+
+    </script>
+</body>
+</html>

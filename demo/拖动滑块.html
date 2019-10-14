@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            background-color:rgb(255,255,255);
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <input type="range"
+           value="0"
+           min="0"
+           max="255"
+           id="s">
+
+    <input type="range"
+           value="0"
+           min="0"
+           max="255"
+           id="s2">
+
+    <input type="range"
+           value="0"
+           min="0"
+           max="255"
+           id="s3">
+
+    <div id="box">
+
+    </div>
+    <script>
+        $("#s").bind("change",function(){
+           //获取拖动时的滑块值
+           var s=$(this).val();
+           var s2=$("#s2").val();
+           var s3=$("#s3").val();
+           //将该值作为rgb中三个值的一部分
+           changeColor(s,s2,s3);
+        })
+        $("#s2").bind("change",function(){
+           //获取拖动时的滑块值
+           var s=$("#s").val();
+           var s2=$(this).val();
+           var s3=$("#s3").val();
+           //将该值作为rgb中三个值的一部分
+           changeColor(s,s2,s3);
+        })
+        $("#s3").bind("change",function(){
+           //获取拖动时的滑块值
+           var s=$("#s").val();
+           var s2=$("#s2").val();
+           var s3=$(this).val();
+           //将该值作为rgb中三个值的一部分
+           changeColor(s,s2,s3);
+        })
+        
+        //编写一个函数，根据传入值改变的元素的背景色
+        function changeColor(a,b,c){
+           //将该值作为rgb中三个值的一部分
+           $("#box")[0].style.backgroundColor="rgb("+a+","+b+","+c+")" 
+        }
+    </script>
+</body>
+</html>

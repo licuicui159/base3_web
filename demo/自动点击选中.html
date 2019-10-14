@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 使用内嵌的方式编写页面样式 -->
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            position: absolute;
+            top: 20px;
+            right: 12px;
+        }
+
+        ul li {
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-bottom: 8px;
+            color: orange;
+            cursor: pointer;
+        }
+
+        ul li.focus {
+            background-color: orange;
+            color: #fff
+        }
+
+        #imgs {
+            width: 352px;
+            height: 220px;
+            position: relative;
+            border: solid 0px #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="imgs">
+        <img src="../../imgs/img01-8.jpg" alt="" id="img" />
+        <ul>
+            <li class="focus">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <!-- 使用内嵌的方式编写js -->
+    <script>
+        //获取全部的li元素对象并保存在变量中
+        var lis = document.getElementsByTagName("li");
+        //获取img元素对象并保存在变量中
+        var img = document.getElementById("img")
+        //定义一个保存全部图片路径的数组
+        var arrImg = ['../../imgs/img01-8.jpg', '../../imgs/img02-8.jpg',
+            '../../imgs/img03-8.jpg', '../../imgs/img04-8.jpg']
+        
+        //定义一个清空全部选中样式的函数
+        function clearFocus() {
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].removeAttribute("class");
+            }
+        }
+
+        //分别绑定每个li元素对象的单击事件
+        lis[0].onclick = function (e) {
+            clearFocus()
+            this.setAttribute("class", 'focus');
+            img.setAttribute("src", arrImg[0]);
+        }
+
+        lis[1].onclick = function (e) {
+            clearFocus()
+            this.setAttribute("class", 'focus');
+            img.setAttribute("src", arrImg[1]);
+        }
+
+        lis[2].onclick = function (e) {
+            clearFocus()
+            this.setAttribute("class", 'focus');
+            img.setAttribute("src", arrImg[2]);
+        }
+
+        lis[3].onclick = function (e) {
+            clearFocus()
+            this.setAttribute("class", 'focus');
+            img.setAttribute("src", arrImg[3]);
+        }
+
+        //定义一个开始的变量
+        var n = 0;
+        //开启一个周期性定时器，实现自动点击
+        setInterval(function () {
+            lis[n].click();
+            n++;
+            if (n == lis.length) n = 0
+        }, 2000)
+
+        
+    </script>
+</body>
+
+</html>

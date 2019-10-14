@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 198px;
+            border-top:solid 1px #ccc;
+            border-left:solid 1px #ccc;
+        }
+        ul li{
+            overflow: hidden;
+        }
+        ul li span{
+            float: left;
+            width: 98px;
+            text-align: center;
+            padding: 3px 0;
+            border-right:solid 1px #ccc;
+            border-bottom:solid 1px #ccc;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul">
+
+    </ul>
+    <script>
+        //定义变量保存分割内容
+        var str='1045_5&2033_6&0112_10'
+        //定义保存ul对象的变量
+        var ul=document.getElementById("ul");
+        //定义头部内容
+        var head='<li><span>商品ID</span><span>商品数量</span></li>';
+        //定义主体内容
+        var body=''
+        //分割&号中数据并保存在数组中
+        var arr=str.split('&');
+        //遍历分割后的数组
+        for(var i=0;i<arr.length;i++){
+            //分割_号中数据并保存在数组中
+            var arr2=arr[i].split('_');
+            //取出数据保存在字符串
+            body+='<li><span>'+arr2[0]+'</span><span>'+arr2[1]+'</span></li>';
+        }
+        //将组合的内容显示在ul元素中
+        ul.innerHTML=head+body;
+    </script>
+</body>
+</html>

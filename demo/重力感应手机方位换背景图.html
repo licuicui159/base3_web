@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <figure>
+        <img src="images/sml1.jpg" id="img">
+    </figure>
+
+    <script>
+        //根据id返回对应的元素对象
+        function $$(id) {
+            return document.getElementById(id);
+        }
+
+        //使用事件侦听的方式监测手机方位的变化
+        window.addEventListener("orientationchange",
+        function () {
+            if (window.orientation == 0 || window.orientation == 180 || window.orientation == -180) {
+                $$("img").setAttribute("src", "images/sml1.jpg");
+            } else {
+                $$("img").setAttribute("src", "images/sml2.jpg");
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

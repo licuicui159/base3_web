@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 315px;
+            border:solid 1px #ccc;
+            padding: 8px;
+        }
+        #txt{
+            width: 230px;
+            padding: 3px 5px;
+        }
+        /* 加span包裹的元素字体为红色 */
+        #p1 span{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div>
+            <input type="text" id="txt">
+            <input type="button" id="btn" value="查找">
+        </div>
+        <p id="p1">
+            一是消费水平大幅提升。新中国成立之初，我们国家物资严重短缺，经过70年的发展，商品服务供给日益丰富，消费规模不断扩大，社会消费品零售总额从1952年的277亿元，增长到2018年的38万亿人民币，我国已经成为全球第二大消费市场。
+        </p>
+    </div>
+    <script>
+        //缓存元素对象到变量中
+        var txt=document.getElementById("txt");
+        var btn=document.getElementById("btn");
+        var p1=document.getElementById("p1");
+        //绑定按钮事件
+        btn.onclick=function(){
+            //获取文本值并保存在变量中
+            var _val=txt.value;
+            //定义正则对象，并将变量传入对象中
+            var reg=new RegExp(_val,'ig');
+            //替换新的文本内容，并保存在变量中
+            var newStr=p1.innerText.replace(reg,'<span>'+_val+'</span>');
+            //将新内容赋值给元素中
+            p1.innerHTML=newStr; 
+        }
+    </script>
+</body>
+</html>

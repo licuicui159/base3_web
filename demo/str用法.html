@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tip">
+
+    </div>
+    <script>
+        //定义变量保存显示元素
+        var tip=document.getElementById("tip");
+        //设置查询元素字符串并保存在变量中
+        var str='zhangsan@sina.com'
+        //找出@元素的下标位置
+        var pos=str.indexOf("@");
+        //获取@前面的用户名
+        var user=str.substring(0,pos)
+        //获取@后面的服务商名
+        var server=str.substring(pos+1,str.length)
+        //显示在页面元素中
+        tip.innerHTML=user+"<br>"+server;
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <!-- 添加一个按钮，保存输入的值 -->
+    <div>
+        <input type="text" id="num">
+
+        <select name="num2" id="num2">
+            <option value="1">小学</option>
+            <option value="2">中学</option>
+            <option value="3">大学</option>
+        </select>
+
+        <button id="btn">保存</button>
+        <button id="btn2">读取</button>
+    </div>
+    <script>
+        var $num=$("#num");
+        var $num2=$("#num2");
+
+        var $btn=$("#btn");
+        var $btn2=$("#btn2");
+
+        $btn.bind("click",function(){
+            console.log($num.val(),$num2.val())
+            //调用本地存储对象保存起来
+            //localStorage.setItem("data1232",$num.val())
+            //调用本地存储对象保存起来
+            // localStorage.setItem("data1232",
+            // $num.val()+'$'+$num2.val())
+            
+            var obj={}//定义一个对象
+                obj.a=$num.val();//使用属性依附到对象中
+                obj.b=$num2.val();//使用属性依附到对象中
+            console.log(obj)
+             //调用本地存储对象保存起来,只保存字符串
+            localStorage.setItem("data1232",JSON.stringify(obj));
+
+        })
+
+        $btn2.bind("click",function(){
+            //调用本地存储对象显示保存的内容
+           var temp = localStorage.getItem("data1232")
+           //将字符串中的$切割
+        //    var arr=temp.split('$');
+           //将内容赋值给文本输入框
+           //$num.val(temp);
+           //将字符串转成对象
+           var obj=JSON.parse(temp); 
+           console.log(obj.a,obj.b);
+        })
+
+    </script>
+</body>
+</html>

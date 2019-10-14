@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,p{
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #box{
+            width: 412px;
+            border:solid 0px red;
+        }
+        #box .nav{
+            overflow: hidden;
+        }
+        #box .nav li{
+            float: left;
+            width: 103px;
+            text-align: center;
+            background-color: #fdfdfd;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+        #box .nav .ff{
+            background-color: #3c93cf;
+            color:#fff;
+        }
+        #box .con{
+            display: none;
+        }
+        #box .con li{
+            font-size: 14px;
+            overflow: hidden;
+            padding: 12px 8px;
+            border-bottom: dashed 1px #ccc;
+        }
+        #box .con li p{
+            float: left;
+        }
+        #box .con li span{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul class="nav">
+            <li class="bar">热点新闻</li>
+            <li class="bar">合作播报</li>
+            <li class="bar">行业资讯</li>
+            <li class="bar ff">运营攻略</li>
+        </ul>
+
+        <ul class="con">
+            <li><p><a href="">[热点新闻]</a> 加盟网络棋牌游戏的注意事项</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[热点新闻]</a> 可以勾选你需要的出现在图项</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[热点新闻]</a> 菜单栏上的Mac测色计应用工具</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[热点新闻]</a> 获得屏幕当前位置的颜色值</p> <span>2019-09-10</span></li>
+        </ul>
+        <ul class="con">
+            <li><p><a href="">[合作播报]</a> 色软件可以快速准确的获取到</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[合作播报]</a> 可以勾选你需要的出现在图项</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[合作播报]</a> 菜单栏上的Mac测色计应用工具</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[合作播报]</a> 获得屏幕当前位置的颜色值</p> <span>2019-09-10</span></li>
+        </ul>
+        <ul class="con">
+            <li><p><a href="">[行业资讯]</a> 屏幕取色软件操作非常简单</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[行业资讯]</a> 可以勾选你需要的出现在图项</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[行业资讯]</a> 菜单栏上的Mac测色计应用工具</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[行业资讯]</a> 获得屏幕当前位置的颜色值</p> <span>2019-09-10</span></li>
+        </ul>
+        <ul class="con">
+            <li><p><a href="">[运营攻略]</a> 给大家搜集了多款Mac平台上的屏幕取</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[运营攻略]</a> 可以勾选你需要的出现在图项</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[运营攻略]</a> 菜单栏上的Mac测色计应用工具</p> <span>2019-09-10</span></li>
+            <li><p><a href="">[运营攻略]</a> 获得屏幕当前位置的颜色值</p> <span>2019-09-10</span></li>
+        </ul>
+    </div>
+    <script>
+        var cons=document.getElementsByClassName("con");
+        var bars=document.getElementsByClassName("bar")
+        //显示最后一项列表内容
+        cons[3].style.display="block";
+
+        bars[0].onclick=function(){
+            hidcon();
+            this.setAttribute("class","bar ff")
+            cons[0].style.display="block";
+        }
+        bars[1].onclick=function(){
+            hidcon();
+            this.setAttribute("class","bar ff")
+            cons[1].style.display="block";
+        }
+        bars[2].onclick=function(){
+            hidcon();
+            this.setAttribute("class","bar ff")
+            cons[2].style.display="block";
+        }
+        bars[3].onclick=function(){
+            hidcon();
+            this.setAttribute("class","bar ff")
+            cons[3].style.display="block";
+        }
+        function hidcon(){
+            for(var i=0;i<cons.length;i++){
+                cons[i].style.display="none"
+                bars[i].setAttribute("class","bar");
+            }
+        }
+    </script>
+</body>
+</html>

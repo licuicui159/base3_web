@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+            /* 顺时针旋转一个20度 */
+            transform:rotateZ(-20deg);
+            transition: all 3s;     
+        }
+        img:hover{
+            transform:rotateZ(360deg)
+        }
+        #a{
+            transform: rotateX(50deg)
+        }
+        #b{
+            transform:rotateY(50deg)
+        }
+        #c{
+            transform:scale(1.5)
+        }
+        #d{
+            transform:skew(60deg)
+        }
+    </style>
+</head>
+<body>
+    <img src="../imgs/img02-3.png" alt="">
+    <img id="a" src="../imgs/img02-3.png" alt="">
+    <img id="b" src="../imgs/img02-3.png" alt="">
+    <img id="c" src="../imgs/img02-3.png" alt="">
+    <img id="d" src="../imgs/img02-3.png" alt="">
+</body>
+</html>

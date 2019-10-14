@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">aa</button>
+    <button id="btn2">bb</button>
+    <script>
+        //如果这个元素没有这个事件名称，
+     document.getElementById("btn").onclick=function(){
+         alert("ok")
+     }
+       //既可以绑定已知事件名称，又可以绑定未知事件名称
+     document.getElementById("btn2").addEventListener("click",function(){
+         alert("ok2")
+     },false)
+    </script>
+</body>
+</html>

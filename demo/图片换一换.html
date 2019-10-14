@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 使用内嵌的方式编写页面样式 -->
+    <style>
+        #books {
+            width: 480px;
+            border: solid 1px #eee;
+            padding: 8px 10px;
+
+        }
+
+        #books .title {
+            overflow: hidden;
+            margin: 5px 0;
+
+        }
+
+        #books .title h3 {
+            float: left;
+        }
+
+        #books .title a {
+            float: right;
+        }
+
+        #books .book {
+            overflow: hidden;
+            margin: 5px 0;
+        }
+
+        #books .book img {
+            float: left;
+            width: 120px;
+        }
+
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="books">
+        <div class="title">
+            <h3>相关书籍</h3>
+            <a id="a1" href="javascript:;">换一换</a>
+        </div>
+        <div class="book" id="imgs">
+            <img src="../../imgs/bk0-8.jpg" alt="">
+            <img src="../../imgs/bk1-8.jpg" alt="">
+            <img src="../../imgs/bk2-8.jpg" alt="">
+            <img src="../../imgs/bk3-8.jpg" alt="">
+        </div>
+    </div>
+    <!-- 使用内嵌的方式编写js -->
+    <script>
+
+        //定义一个生成指定位数且不重复的随机数函数
+        function createRndom(len, max) {
+            var arr = [];
+            while (arr.length < len) {
+                var i = Math.floor(Math.random() * max);
+                var strArr = arr.toString();
+                if (strArr.indexOf(i) == -1) {
+                    arr.push(i);
+                }
+            }
+            return arr;
+        }
+        //定义一个保存全部图片路径的数组
+        var arrImgs = ['../../imgs/bk0-8.jpg', '../../imgs/bk1-8.jpg', '../../imgs/bk2-8.jpg',
+            '../../imgs/bk3-8.jpg', '../../imgs/bk4-8.jpg', '../../imgs/bk5-8.jpg',
+            '../../imgs/bk6-8.jpg', '../../imgs/bk7-8.jpg', '../../imgs/bk8-8.jpg',
+            '../../imgs/bk9-8.jpg']
+
+        //获取并保存换一换按钮元素
+        var a1 = document.getElementById("a1");
+        //获取并保存包裹图片元素
+        var imgs = document.getElementById("imgs");
+        
+        //绑定换一换按钮的事件
+        a1.onclick = function (e) {
+            //定义一个变量
+            var html = '';
+            //生成一个无重复的4位随机数
+            var _arr = createRndom(4, 10);
+            //遍历随机数组，获取每一个元素并作为图片数组的下标添加到图片
+            for (var i = 0; i < _arr.length; i++) {
+                html += "<img src='" + arrImgs[_arr[i]] + "' />"
+            }
+            //将遍历后最终形成的内容赋值给包裹图片元素
+            imgs.innerHTML = html;
+        }
+
+    </script>
+</body>
+
+</html>
